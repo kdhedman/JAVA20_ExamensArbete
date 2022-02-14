@@ -1,0 +1,48 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.NFCDoorAccess" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/white</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:popupBackground">@color/spinner_dropdown</item>
+    </style>
+
+    <style name="Theme.NFCDoorAccess.EditText" parent="Theme.NFCDoorAccess">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:imeOptions">actionDone</item>
+    </style>
+
+    <style name="Theme.NFCDoorAccess.EditText.IP" parent="Theme.NFCDoorAccess.EditText">
+        <item name="android:maxLength">3</item>
+        <item name="android:inputType">number</item>
+        <item name="android:hint">@string/ipnumber_hint</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:importantForAutofill">no</item>
+        <item name="android:autofillHints">0-255</item>
+    </style>
+
+    <style name="Theme.NFCDoorAccess.CheckBox" parent="Theme.NFCDoorAccess">
+        <item name="android:layout_height">@dimen/square_button</item>
+        <item name="android:layout_width">@dimen/square_button</item>
+        <item name="android:layout_marginEnd">@dimen/right_margin</item>
+
+    </style>
+</resources>

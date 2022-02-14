@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="square_button" type="dimen">50dp</item>
+    <item name="top_padding" type="dimen">1dp</item>
+    <item name="right_margin" type="dimen">16dp</item>
+    <item name="left_margin" type="dimen">16dp</item>
+    <item name="ble_bottom_buttons" type="dimen">50dp</item>
+    <item name="ip_conf_labels_width" type="dimen">120dp</item>
+</resources>

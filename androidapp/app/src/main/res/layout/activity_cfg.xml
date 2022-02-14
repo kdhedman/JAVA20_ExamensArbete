@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_a"
+    tools:context=".MainActivity">
+
+
+    <include layout="@layout/titlebar"></include>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cfgLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutTokens"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/btnBLEConnectionStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvLog"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="150dp"
+                android:background="@drawable/logborder"
+                android:gravity="bottom"
+                android:minLines="8"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbarSize="10dp"
+                android:scrollbars="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/tvIdPointLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.874" />
+
+            <TextView
+                android:id="@+id/tvIdPointLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="16dp"
+                android:text="@string/id_point_label"
+                app:layout_constraintBottom_toTopOf="@+id/btnIdPointRefresh"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLog"
+                app:layout_constraintVertical_bias="0.4" />
+
+            <ImageButton
+                android:id="@+id/btnIdPointRefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:background="@color/orange"
+                android:minWidth="@dimen/square_button"
+                android:minHeight="@dimen/square_button"
+                android:src="@android:drawable/ic_popup_sync"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/spnIdPoint"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvIdPointLabel" />
+
+            <Spinner
+                android:id="@+id/spnIdPoint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:popupBackground="@color/spinner_dropdown"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toRightOf="@+id/btnIdPointRefresh"
+                app:layout_constraintRight_toLeftOf="@+id/btnIdPointSend"
+                app:layout_constraintTop_toBottomOf="@id/tvIdPointLabel" />
+
+            <ImageButton
+                android:id="@+id/btnIdPointSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/right_margin"
+                android:background="@color/orange"
+                android:minWidth="@dimen/square_button"
+                android:minHeight="@dimen/square_button"
+                android:src="@android:drawable/ic_menu_send"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/spnIdPoint"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvIdPointLabel" />
+
+            <!--       Target DOOR TOKEN-->
+            <TextView
+                android:id="@+id/tvTargetLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_padding"
+                android:text="@string/target_point_label"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnIdPointRefresh"
+                app:layout_constraintVertical_bias="0.4" />
+
+            <ImageButton
+                android:id="@+id/btnTargetRefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/left_margin"
+                android:background="@color/orange"
+                android:minWidth="@dimen/square_button"
+                android:minHeight="@dimen/square_button"
+                android:src="@android:drawable/ic_popup_sync"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/spnTargetPoint"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTargetLabel" />
+
+            <Spinner
+                android:id="@+id/spnTargetPoint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:popupBackground="@color/spinner_dropdown"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toRightOf="@+id/btnTargetRefresh"
+                app:layout_constraintRight_toLeftOf="@+id/btnTargetSend"
+                app:layout_constraintTop_toBottomOf="@+id/tvTargetLabel" />
+
+            <ImageButton
+                android:id="@+id/btnTargetSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/right_margin"
+                android:background="@color/orange"
+                android:minWidth="@dimen/square_button"
+                android:minHeight="@dimen/square_button"
+                android:src="@android:drawable/ic_menu_send"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/spnTargetPoint"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTargetLabel" />
+
+            <!--        REQUEST TO ACCESS DOOR      -->
+
+            <TextView
+                android:id="@+id/tvAccessDoorLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_padding"
+                android:text="@string/access_door_label"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnTargetRefresh"
+                app:layout_constraintVertical_bias="0.4" />
+
+            <Button
+                android:id="@+id/btnAccessDoor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/right_margin"
+                android:layout_marginStart="@dimen/left_margin"
+                android:text="@string/access_door_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvAccessDoorLabel" />
+
+            <!--        REQUEST TO ACCESS DOOR      -->
+
+            <TextView
+                android:id="@+id/tvExitConfigMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_padding"
+                android:text="@string/exit_config_label"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnAccessDoor"
+                app:layout_constraintVertical_bias="0.4" />
+
+            <Button
+                android:id="@+id/btnExitConfigMode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/right_margin"
+                android:layout_marginStart="@dimen/left_margin"
+                android:text="@string/exit_config_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvExitConfigMode" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnBLEHardwaretatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/left_margin"
+            android:text="@string/BLE_button_hwstatus_working"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnBLEConnectionStatus"
+            app:layout_constraintTop_toBottomOf="@id/layoutTokens" />
+
+        <Button
+            android:id="@+id/btnBLEConnectionStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/right_margin"
+            android:text="@string/BLE_button_constatus_working"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnBLEHardwaretatus"
+            app:layout_constraintTop_toBottomOf="@id/layoutTokens" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutAuth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@id/btnBLEConnectionStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.8">
+
+
+            <!--            USERNAME -->
+            <TextView
+                android:id="@+id/tvUserLabel"
+                android:layout_width="@dimen/ip_conf_labels_width"
+                android:layout_height="wrap_content"
+                android:text="@string/username_label"
+                android:textAlignment="textEnd"
+                app:layout_constraintBottom_toBottomOf="@+id/cbUsernameSend"
+                app:layout_constraintEnd_toStartOf="@id/tfUsername"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cbUsernameSend" />
+
+            <EditText
+                android:id="@+id/tfUsername"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@id/tfPassword"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/cbUsernameSend"
+                app:layout_constraintEnd_toStartOf="@id/cbUsernameSend"
+                app:layout_constraintStart_toEndOf="@id/tvUserLabel"
+                android:autofillHints="username" />
+
+            <CheckBox
+                style="@style/Theme.NFCDoorAccess.CheckBox"
+                android:id="@+id/cbUsernameSend"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <!--            <ImageButton-->
+            <!--                android:id="@+id/btnUsernameSend"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginEnd="@dimen/right_margin"-->
+            <!--                android:background="@color/orange"-->
+            <!--                android:minWidth="@dimen/square_button"-->
+            <!--                android:minHeight="@dimen/square_button"-->
+            <!--                android:src="@android:drawable/ic_menu_send"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintLeft_toRightOf="@+id/tfUsername"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <!--            Password -->
+            <TextView
+                android:id="@+id/tvPasswordLabel"
+                android:layout_width="@dimen/ip_conf_labels_width"
+                android:layout_height="wrap_content"
+                android:text="@string/password_label"
+                android:textAlignment="textEnd"
+                app:layout_constraintBottom_toBottomOf="@+id/cbPasswordSend"
+                app:layout_constraintEnd_toStartOf="@id/tfPassword"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cbPasswordSend" />
+
+            <EditText
+                android:id="@+id/tfPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:imeOptions="actionDone"
+                app:layout_constraintBottom_toBottomOf="@id/cbPasswordSend"
+                app:layout_constraintEnd_toStartOf="@id/cbPasswordSend"
+                app:layout_constraintStart_toEndOf="@id/tvPasswordLabel"
+                android:autofillHints="password" />
+
+            <CheckBox
+                style="@style/Theme.NFCDoorAccess.CheckBox"
+                android:id="@+id/cbPasswordSend"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/tfPassword"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cbUsernameSend"/>
+
+            <!--            <ImageButton-->
+            <!--                android:id="@+id/btnPasswordSend"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginEnd="@dimen/right_margin"-->
+            <!--                android:background="@color/orange"-->
+            <!--                android:minWidth="@dimen/square_button"-->
+            <!--                android:minHeight="@dimen/square_button"-->
+            <!--                android:src="@android:drawable/ic_menu_send"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintLeft_toRightOf="@+id/tfPassword"-->
+            <!--                app:layout_constraintRight_toRightOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/cbUsernameSend" />-->
+            <!--            IP -->
+            <TextView
+                android:id="@+id/tvIPLabel"
+                android:layout_width="@dimen/ip_conf_labels_width"
+                android:layout_height="wrap_content"
+                android:text="@string/ip_address_label"
+                android:textAlignment="textEnd"
+                app:layout_constraintBottom_toBottomOf="@id/cbIPSend"
+                app:layout_constraintEnd_toStartOf="@id/tfIP1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cbIPSend" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfIP1"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfIP2"
+                app:layout_constraintBottom_toBottomOf="@id/cbIPSend"
+                app:layout_constraintEnd_toStartOf="@id/tfIP2"
+                app:layout_constraintStart_toEndOf="@id/tvIPLabel" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfIP2"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfIP3"
+                app:layout_constraintBottom_toBottomOf="@id/cbIPSend"
+                app:layout_constraintEnd_toStartOf="@id/tfIP3"
+                app:layout_constraintStart_toEndOf="@id/tfIP1" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfIP3"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfIP4"
+                app:layout_constraintBottom_toBottomOf="@id/cbIPSend"
+                app:layout_constraintEnd_toStartOf="@id/tfIP4"
+                app:layout_constraintStart_toEndOf="@id/tfIP2" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfIP4"
+                android:nextFocusForward="@id/tfGateway1"
+                app:layout_constraintBottom_toBottomOf="@id/cbIPSend"
+                app:layout_constraintEnd_toStartOf="@id/cbIPSend"
+                app:layout_constraintStart_toEndOf="@id/tfIP3" />
+
+            <CheckBox
+                style="@style/Theme.NFCDoorAccess.CheckBox"
+                android:id="@+id/cbIPSend"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tfIP4"
+                app:layout_constraintTop_toBottomOf="@+id/cbPasswordSend"/>
+
+            <!--            SERVER-IP -->
+            <TextView
+                android:id="@+id/tvDoorCtrlIPLabel"
+                android:layout_width="@dimen/ip_conf_labels_width"
+                android:layout_height="wrap_content"
+                android:text="@string/door_controller_ip_label"
+                android:textAlignment="textEnd"
+                app:layout_constraintTop_toTopOf="@id/cbDoorCtrlIPSend"
+                app:layout_constraintBottom_toBottomOf="@id/cbDoorCtrlIPSend"
+                app:layout_constraintEnd_toStartOf="@id/tfDoorCtrlIP1"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfDoorCtrlIP1"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfDoorCtrlIP2"
+                app:layout_constraintBottom_toBottomOf="@id/cbDoorCtrlIPSend"
+                app:layout_constraintEnd_toStartOf="@id/tfDoorCtrlIP2"
+                app:layout_constraintStart_toEndOf="@id/tvDoorCtrlIPLabel" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfDoorCtrlIP2"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfDoorCtrlIP3"
+                app:layout_constraintBottom_toBottomOf="@id/cbDoorCtrlIPSend"
+                app:layout_constraintEnd_toStartOf="@id/tfDoorCtrlIP3"
+                app:layout_constraintStart_toEndOf="@id/tfDoorCtrlIP1" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfDoorCtrlIP3"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfDoorCtrlIP4"
+                app:layout_constraintBottom_toBottomOf="@id/cbDoorCtrlIPSend"
+                app:layout_constraintEnd_toStartOf="@id/tfDoorCtrlIP4"
+                app:layout_constraintStart_toEndOf="@id/tfDoorCtrlIP2" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfDoorCtrlIP4"
+                app:layout_constraintBottom_toBottomOf="@id/cbDoorCtrlIPSend"
+                app:layout_constraintEnd_toStartOf="@id/tfDoorCtrlIPPort"
+                app:layout_constraintStart_toEndOf="@id/tfDoorCtrlIP3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="18dp"
+                android:maxLength="5"
+                app:layout_constraintTop_toTopOf="@id/cbDoorCtrlIPSend"
+                app:layout_constraintBottom_toBottomOf="@id/cbDoorCtrlIPSend"
+                app:layout_constraintStart_toEndOf="@id/tfDoorCtrlIP4"
+                app:layout_constraintEnd_toStartOf="@id/tfDoorCtrlIPPort"/>
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfDoorCtrlIPPort"
+                android:imeOptions="actionDone"
+
+                app:layout_constraintBottom_toBottomOf="@id/cbDoorCtrlIPSend"
+                app:layout_constraintEnd_toStartOf="@id/cbDoorCtrlIPSend"
+                app:layout_constraintStart_toEndOf="@id/tfDoorCtrlIP4" />
+
+            <CheckBox
+                style="@style/Theme.NFCDoorAccess.CheckBox"
+                android:id="@+id/cbDoorCtrlIPSend"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/tfDoorCtrlIP4"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cbIPSend"/>
+
+            <!--            DHCP       -->
+            <TextView
+                android:id="@+id/tvDHCPLabel"
+                android:layout_width="@dimen/ip_conf_labels_width"
+                android:layout_height="wrap_content"
+                android:text="@string/dhcp_label"
+                android:textAlignment="textEnd"
+                app:layout_constraintBottom_toBottomOf="@id/swDHCP"
+                app:layout_constraintTop_toTopOf="@id/swDHCP"
+                app:layout_constraintEnd_toStartOf="@id/swDHCP"
+                app:layout_constraintStart_toStartOf="parent"
+
+                />
+
+
+            <Switch
+                android:id="@+id/swDHCP"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/square_button"
+                android:switchMinWidth="60dp"
+                android:textColor="@color/white"
+                android:checked="true"
+                app:layout_constraintBottom_toBottomOf="@id/cbDHCPSend"
+                app:layout_constraintStart_toEndOf="@id/tvDHCPLabel" />
+
+            <CheckBox
+                style="@style/Theme.NFCDoorAccess.CheckBox"
+                android:id="@+id/cbDHCPSend"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cbDoorCtrlIPSend"/>
+
+            <!--            Gateway    -->
+            <TextView
+                android:id="@+id/tvGatewayLabel"
+                android:layout_width="@dimen/ip_conf_labels_width"
+                android:layout_height="wrap_content"
+                android:text="@string/gateway_label"
+                android:textAlignment="textEnd"
+                app:layout_constraintBottom_toBottomOf="@id/cbGatewaySend"
+                app:layout_constraintEnd_toStartOf="@id/tfGateway1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cbGatewaySend" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfGateway1"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfGateway2"
+                app:layout_constraintBottom_toBottomOf="@id/cbGatewaySend"
+                app:layout_constraintEnd_toStartOf="@id/tfGateway2"
+                app:layout_constraintStart_toEndOf="@id/tvGatewayLabel" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfGateway2"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfGateway3"
+                app:layout_constraintBottom_toBottomOf="@id/cbGatewaySend"
+                app:layout_constraintEnd_toStartOf="@id/tfGateway3"
+                app:layout_constraintStart_toEndOf="@id/tfGateway1" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfGateway3"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfGateway4"
+                app:layout_constraintBottom_toBottomOf="@id/cbGatewaySend"
+                app:layout_constraintEnd_toStartOf="@id/tfGateway4"
+                app:layout_constraintStart_toEndOf="@id/tfGateway2" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfGateway4"
+                app:layout_constraintBottom_toBottomOf="@id/cbGatewaySend"
+                app:layout_constraintEnd_toStartOf="@id/cbGatewaySend"
+                app:layout_constraintStart_toEndOf="@id/tfGateway3" />
+
+            <CheckBox
+                style="@style/Theme.NFCDoorAccess.CheckBox"
+                android:id="@+id/cbGatewaySend"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tfGateway4"
+                app:layout_constraintTop_toBottomOf="@+id/cbDHCPSend"/>
+
+<!--            DNS -->
+            <TextView
+                android:id="@+id/tvDNSLabel"
+                android:layout_width="@dimen/ip_conf_labels_width"
+                android:layout_height="wrap_content"
+                android:text="@string/dns_label"
+                android:textAlignment="textEnd"
+                app:layout_constraintTop_toTopOf="@id/cbDNSSend"
+                app:layout_constraintBottom_toBottomOf="@id/cbDNSSend"
+                app:layout_constraintEnd_toStartOf="@id/tfDNS1"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfDNS1"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfDNS2"
+                app:layout_constraintBottom_toBottomOf="@id/cbDNSSend"
+                app:layout_constraintEnd_toStartOf="@id/tfDNS2"
+                app:layout_constraintStart_toEndOf="@id/tvDNSLabel" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfDNS2"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfDNS3"
+                app:layout_constraintBottom_toBottomOf="@id/cbDNSSend"
+                app:layout_constraintEnd_toStartOf="@id/tfDNS3"
+                app:layout_constraintStart_toEndOf="@id/tfDNS1" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfDNS3"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfDNS4"
+                app:layout_constraintBottom_toBottomOf="@id/cbDNSSend"
+                app:layout_constraintEnd_toStartOf="@id/tfDNS4"
+                app:layout_constraintStart_toEndOf="@id/tfDNS2" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfDNS4"
+                app:layout_constraintBottom_toBottomOf="@id/cbDNSSend"
+                app:layout_constraintEnd_toStartOf="@id/cbDNSSend"
+                app:layout_constraintStart_toEndOf="@id/tfDNS3" />
+
+            <CheckBox
+                style="@style/Theme.NFCDoorAccess.CheckBox"
+                android:id="@+id/cbDNSSend"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tfDNS4"
+                app:layout_constraintTop_toBottomOf="@+id/cbGatewaySend"/>
+
+            <!--            SUBNET         -->
+            <TextView
+                android:id="@+id/tvSubnetLabel"
+                android:layout_width="@dimen/ip_conf_labels_width"
+                android:layout_height="wrap_content"
+                android:text="@string/subnet_label"
+                android:textAlignment="textEnd"
+                app:layout_constraintTop_toTopOf="@id/cbSubnetSend"
+                app:layout_constraintBottom_toBottomOf="@id/cbSubnetSend"
+                app:layout_constraintEnd_toStartOf="@id/tfSubnet1"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfSubnet1"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfSubnet2"
+                app:layout_constraintBottom_toBottomOf="@id/cbSubnetSend"
+                app:layout_constraintEnd_toStartOf="@id/tfSubnet2"
+                app:layout_constraintStart_toEndOf="@id/tvSubnetLabel" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfSubnet2"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfSubnet3"
+                app:layout_constraintBottom_toBottomOf="@id/cbSubnetSend"
+                app:layout_constraintEnd_toStartOf="@id/tfSubnet3"
+                app:layout_constraintStart_toEndOf="@id/tfSubnet1" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfSubnet3"
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/tfSubnet4"
+                app:layout_constraintBottom_toBottomOf="@id/cbSubnetSend"
+                app:layout_constraintEnd_toStartOf="@id/tfSubnet4"
+                app:layout_constraintStart_toEndOf="@id/tfSubnet2" />
+
+            <EditText
+                style="@style/Theme.NFCDoorAccess.EditText.IP"
+                android:id="@+id/tfSubnet4"
+                app:layout_constraintBottom_toBottomOf="@id/cbSubnetSend"
+                app:layout_constraintEnd_toStartOf="@id/cbSubnetSend"
+                app:layout_constraintStart_toEndOf="@id/tfSubnet3" />
+
+            <CheckBox
+                style="@style/Theme.NFCDoorAccess.CheckBox"
+                android:id="@+id/cbSubnetSend"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/tfSubnet4"
+                app:layout_constraintTop_toBottomOf="@+id/cbDNSSend"/>
+
+            <!--            <ImageButton-->
+            <!--                android:id="@+id/btnSubnetSend"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginEnd="@dimen/right_margin"-->
+            <!--                android:background="@color/orange"-->
+            <!--                android:minWidth="@dimen/square_button"-->
+            <!--                android:minHeight="@dimen/square_button"-->
+            <!--                android:src="@android:drawable/ic_menu_send"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintLeft_toRightOf="@+id/tfSubnet4"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/cbDNSSend" />-->
+
+
+            <Button
+                android:id="@+id/btnResetConf"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/button_send_auth_conf"
+                android:layout_marginEnd="@dimen/left_margin"
+                android:layout_marginStart="@dimen/right_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnConfSendAll"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cbSubnetSend" />
+
+            <Button
+                android:id="@+id/btnConfSendAll"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/right_margin"
+                android:layout_marginEnd="@dimen/left_margin"
+                android:text="@string/button_send_auth_conf"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnResetConf"
+                app:layout_constraintTop_toBottomOf="@id/cbSubnetSend" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <include layout="@layout/authrequired"></include>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

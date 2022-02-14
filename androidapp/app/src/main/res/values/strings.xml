@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">NFC-Door-Access</string>
+    <string name="button_nfc_send">Tap phone on reader to send number</string>
+    <string name="id_point_label">ID Point Token</string>
+    <string name="target_point_label">Target Door Token</string>
+    <string name="access_door_label">Request to Access Door</string>
+    <string name="access_door_btn">Request to Access Door</string>
+    <string name="exit_config_label">Exit configuration</string>
+    <string name="exit_config_btn">Reboot device to operating mode</string>
+    <string name="BLE_button_hwstatus_working">Bluetooth enabled</string>
+    <string name="BLE_button_constatus_scanning">Scanning for Device</string>
+    <string name="BLE_button_constatus_connecting">Connecting to Device</string>
+    <string name="BLE_button_constatus_working">Connected - Disconnect from Device</string>
+    <string name="BLE_button_constatus_disconnected">Disconnected - Scan for Device</string>
+    <string name="BLE_button_constatus_devicenotfound">No Device in Range, Scan Again</string>
+    <string name="username_label">Username:</string>
+    <string name="password_label">Password:</string>
+    <string name="dhcp_label">DHCP:</string>
+    <string name="dns_label">DNS:</string>
+    <string name="subnet_label">Subnet:</string>
+    <string name="gateway_label">Gateway:</string>
+    <string name="ip_address_label">IP Address:</string>
+    <string name="door_controller_ip_label">Door Controller IP:</string>
+    <string name="ipnumber_hint">0</string>
+    <string name="button_send_auth_conf">Send Configuration</string>
+    <string name="spinner_idpoint_default">Update to get ID-points</string>
+    <string name="spinner_doors_default">Update to get Door Targets</string>
+</resources>
+<!-- u:användarnamn,p:lösenordfastlitelängre,i:123.123.123.123,c:0,d:123.123.123.123,g:123.123.123.123,h:123.123.123.123,,-->
